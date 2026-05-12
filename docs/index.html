@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lamartine Cabral</title>
+    <meta
+      name="description"
+      content="Lamartine Cabral builds practical software with a focus on programming, artificial intelligence, and simple products that solve real problems."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f4efe5;
+        --bg-strong: #ece4d5;
+        --surface: rgba(255, 252, 245, 0.84);
+        --surface-strong: rgba(255, 250, 242, 0.96);
+        --text: #1d211d;
+        --muted: #5f665a;
+        --border: rgba(29, 33, 29, 0.12);
+        --border-strong: rgba(29, 33, 29, 0.22);
+        --accent: #0d6b5f;
+        --accent-soft: rgba(13, 107, 95, 0.12);
+        --shadow: 0 24px 60px rgba(50, 44, 35, 0.16);
+        --max-width: 1160px;
+        --radius: 28px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "IBM Plex Mono", monospace;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top left, rgba(13, 107, 95, 0.12), transparent 26%),
+          radial-gradient(circle at bottom right, rgba(175, 93, 48, 0.14), transparent 28%),
+          linear-gradient(180deg, #f7f1e6 0%, var(--bg) 100%);
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(29, 33, 29, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(29, 33, 29, 0.05) 1px, transparent 1px);
+        background-size: 32px 32px;
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.34), transparent 84%);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+      }
+
+      .shell {
+        width: min(calc(100% - 2rem), var(--max-width));
+        margin: 0 auto;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        animation: rise 700ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+      }
+
+      .reveal:nth-child(2) {
+        animation-delay: 100ms;
+      }
+
+      .reveal:nth-child(3) {
+        animation-delay: 180ms;
+      }
+
+      .reveal:nth-child(4) {
+        animation-delay: 260ms;
+      }
+
+      .hero {
+        position: relative;
+        padding: 28px 0 18px;
+      }
+
+      .hero__frame {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--border-strong);
+        border-radius: calc(var(--radius) + 8px);
+        background:
+          linear-gradient(180deg, rgba(255, 251, 244, 0.96) 0%, rgba(255, 247, 235, 0.92) 100%);
+        box-shadow: var(--shadow);
+      }
+
+      .hero__frame::before,
+      .hero__frame::after {
+        content: "";
+        position: absolute;
+        border-radius: 999px;
+        filter: blur(12px);
+      }
+
+      .hero__frame::before {
+        width: 220px;
+        height: 220px;
+        top: -90px;
+        right: -30px;
+        background: rgba(13, 107, 95, 0.16);
+      }
+
+      .hero__frame::after {
+        width: 260px;
+        height: 260px;
+        bottom: -140px;
+        left: -80px;
+        background: rgba(175, 93, 48, 0.14);
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1rem 1.25rem;
+        border-bottom: 1px solid var(--border);
+        background: rgba(255, 252, 246, 0.86);
+        backdrop-filter: blur(12px);
+      }
+
+      .topbar__brand {
+        font-size: 0.82rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .topbar nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+      }
+
+      .topbar nav a {
+        padding: 0.55rem 0.8rem;
+        border: 1px solid transparent;
+        border-radius: 999px;
+        font-size: 0.82rem;
+        text-decoration: none;
+        transition: border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
+      }
+
+      .topbar nav a:hover,
+      .topbar nav a:focus-visible {
+        border-color: var(--border-strong);
+        background: rgba(255, 255, 255, 0.7);
+        transform: translateY(-1px);
+      }
+
+      .hero__content {
+        position: relative;
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: minmax(0, 1.3fr) minmax(300px, 0.9fr);
+        padding: clamp(1.5rem, 2vw, 2rem);
+      }
+
+      .hero__copy {
+        display: grid;
+        gap: 1.2rem;
+        align-content: start;
+        padding: clamp(1rem, 2vw, 1.5rem);
+      }
+
+      .hero__eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        width: fit-content;
+        padding: 0.45rem 0.8rem;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.62);
+        color: var(--muted);
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+      }
+
+      .hero__eyebrow::before {
+        content: "";
+        width: 0.55rem;
+        height: 0.55rem;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 0 6px rgba(13, 107, 95, 0.12);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        max-width: 13ch;
+        font-size: clamp(2.8rem, 8vw, 5.8rem);
+        line-height: 0.94;
+        letter-spacing: -0.08em;
+      }
+
+      .hero__lead {
+        max-width: 60ch;
+        font-size: 1rem;
+        line-height: 1.9;
+        color: var(--muted);
+      }
+
+      .hero__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.9rem;
+      }
+
+      .button,
+      .button--ghost {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.65rem;
+        min-height: 3rem;
+        padding: 0.75rem 1rem;
+        border-radius: 999px;
+        border: 1px solid var(--border-strong);
+        text-decoration: none;
+        font-size: 0.92rem;
+        transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+      }
+
+      .button {
+        color: #f7f4ed;
+        background: linear-gradient(135deg, #0d6b5f 0%, #125148 100%);
+        box-shadow: 0 12px 28px rgba(13, 107, 95, 0.18);
+      }
+
+      .button--ghost {
+        background: rgba(255, 255, 255, 0.6);
+      }
+
+      .button:hover,
+      .button:focus-visible,
+      .button--ghost:hover,
+      .button--ghost:focus-visible {
+        transform: translateY(-2px);
+      }
+
+      .hero__facts {
+        display: grid;
+        gap: 0.85rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .fact {
+        padding: 0.9rem 0.95rem;
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.62);
+      }
+
+      .fact strong {
+        display: block;
+        margin-bottom: 0.35rem;
+        font-size: 0.84rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .fact span {
+        color: var(--muted);
+        font-size: 0.88rem;
+        line-height: 1.6;
+      }
+
+      .hero__panel {
+        display: grid;
+        gap: 1rem;
+        align-content: start;
+      }
+
+      .terminal,
+      .focus {
+        border: 1px solid var(--border-strong);
+        border-radius: 24px;
+        background: var(--surface);
+        backdrop-filter: blur(12px);
+      }
+
+      .terminal {
+        overflow: hidden;
+      }
+
+      .terminal__bar {
+        display: flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.95rem 1rem;
+        border-bottom: 1px solid var(--border);
+        background: rgba(29, 33, 29, 0.04);
+      }
+
+      .terminal__bar span {
+        width: 0.72rem;
+        height: 0.72rem;
+        border-radius: 50%;
+        background: rgba(29, 33, 29, 0.18);
+      }
+
+      .terminal__body {
+        display: grid;
+        gap: 0.8rem;
+        padding: 1.15rem;
+        font-size: 0.92rem;
+        line-height: 1.8;
+        color: var(--muted);
+      }
+
+      .terminal__body strong {
+        color: var(--text);
+        font-weight: 600;
+      }
+
+      .terminal__prompt {
+        color: var(--accent);
+      }
+
+      .focus {
+        padding: 1.2rem;
+      }
+
+      .focus h2 {
+        margin-bottom: 1rem;
+        font-size: 0.88rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .focus ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 0.75rem;
+      }
+
+      .focus li {
+        display: grid;
+        gap: 0.18rem;
+        padding: 0.85rem 0.95rem;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        background: var(--surface-strong);
+      }
+
+      .focus li strong {
+        font-size: 0.94rem;
+      }
+
+      .focus li span {
+        color: var(--muted);
+        font-size: 0.88rem;
+        line-height: 1.55;
+      }
+
+      main {
+        padding: 2rem 0 4.5rem;
+      }
+
+      .section {
+        padding: 2rem 0;
+      }
+
+      .section__heading {
+        display: grid;
+        gap: 0.75rem;
+        max-width: 62ch;
+        margin-bottom: 1.5rem;
+      }
+
+      .section__heading span {
+        color: var(--muted);
+        font-size: 0.82rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .section__heading h2 {
+        font-size: clamp(1.9rem, 5vw, 3.4rem);
+        line-height: 1;
+        letter-spacing: -0.07em;
+      }
+
+      .section__heading p {
+        color: var(--muted);
+        line-height: 1.9;
+      }
+
+      .projects {
+        display: grid;
+        gap: 1.5rem;
+      }
+
+      .project {
+        display: grid;
+        gap: 1.25rem;
+        grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+        padding: 1.1rem;
+        border: 1px solid var(--border-strong);
+        border-radius: calc(var(--radius) - 4px);
+        background: rgba(255, 251, 245, 0.76);
+        box-shadow: 0 18px 40px rgba(63, 53, 43, 0.09);
+      }
+
+      .project:nth-child(2) {
+        grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.15fr);
+      }
+
+      .project__image {
+        overflow: hidden;
+        border-radius: 22px;
+        border: 1px solid var(--border);
+        background: linear-gradient(180deg, rgba(29, 33, 29, 0.05), rgba(29, 33, 29, 0.01));
+      }
+
+      .project__image img {
+        height: 100%;
+        min-height: 260px;
+        object-fit: cover;
+      }
+
+      .project__body {
+        display: grid;
+        gap: 0.9rem;
+        align-content: center;
+        padding: 0.5rem;
+      }
+
+      .project__label {
+        font-size: 0.8rem;
+        color: var(--muted);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .project__body h3 {
+        font-size: clamp(1.7rem, 4vw, 2.7rem);
+        line-height: 1;
+        letter-spacing: -0.06em;
+      }
+
+      .project__body p {
+        color: var(--muted);
+        line-height: 1.9;
+      }
+
+      .project__tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+
+      .project__tags span {
+        padding: 0.45rem 0.65rem;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 0.78rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .about {
+        display: grid;
+        gap: 1.25rem;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .about__panel {
+        padding: 1.35rem;
+        border: 1px solid var(--border-strong);
+        border-radius: calc(var(--radius) - 6px);
+        background: rgba(255, 252, 247, 0.78);
+      }
+
+      .about__panel p {
+        color: var(--muted);
+        line-height: 1.9;
+      }
+
+      .about__panel h3 {
+        margin-bottom: 0.8rem;
+        font-size: 1rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .footer {
+        padding: 0 0 2.5rem;
+      }
+
+      .footer__card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1.2rem 1.25rem;
+        border: 1px solid var(--border-strong);
+        border-radius: 24px;
+        background: rgba(255, 251, 244, 0.82);
+      }
+
+      .footer__card p {
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.7;
+      }
+
+      .footer__links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+      }
+
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 940px) {
+        .hero__content,
+        .project,
+        .project:nth-child(2),
+        .about {
+          grid-template-columns: 1fr;
+        }
+
+        .hero__facts {
+          grid-template-columns: 1fr;
+        }
+
+        .project__image img {
+          min-height: 220px;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .shell {
+          width: min(calc(100% - 1rem), var(--max-width));
+        }
+
+        .topbar,
+        .footer__card {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .hero {
+          padding-top: 12px;
+        }
+
+        .hero__content {
+          padding: 1rem;
+        }
+
+        h1 {
+          max-width: none;
+          font-size: clamp(2.5rem, 16vw, 4rem);
+        }
+
+        .hero__copy,
+        .project__body,
+        .about__panel,
+        .focus,
+        .terminal__body {
+          padding-left: 0;
+          padding-right: 0;
+        }
+
+        .project,
+        .about__panel,
+        .footer__card,
+        .focus,
+        .terminal {
+          border-radius: 20px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
+        }
+
+        .reveal {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero shell">
+      <div class="hero__frame reveal">
+        <div class="topbar">
+          <div class="topbar__brand">Lamartine Cabral</div>
+          <nav aria-label="Primary navigation">
+            <a href="#projects">Projects</a>
+            <a href="#about">About</a>
+            <a href="https://www.linkedin.com/in/lamartine-cabral/" target="_blank" rel="noreferrer">LinkedIn</a>
+          </nav>
+        </div>
+
+        <div class="hero__content">
+          <div class="hero__copy reveal">
+            <div class="hero__eyebrow">Programming · AI · Practical software</div>
+            <h1>Building useful software with a technical edge.</h1>
+            <p class="hero__lead">
+              I’m Lamartine Cabral. I care about programming, artificial intelligence, and
+              shipping products that solve real problems without unnecessary complexity.
+            </p>
+
+            <div class="hero__actions">
+              <a class="button" href="#projects">See featured work</a>
+              <a
+                class="button--ghost"
+                href="https://www.linkedin.com/in/lamartine-cabral/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Connect on LinkedIn
+              </a>
+            </div>
+
+            <div class="hero__facts" aria-label="Core areas of interest">
+              <div class="fact">
+                <strong>Programming</strong>
+                <span>Practical engineering with clear interfaces and maintainable systems.</span>
+              </div>
+              <div class="fact">
+                <strong>Artificial intelligence</strong>
+                <span>Tools that fit real workflows instead of demo-only experiences.</span>
+              </div>
+              <div class="fact">
+                <strong>Problem solving</strong>
+                <span>Simple products designed around actual constraints and daily use.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero__panel reveal">
+            <section class="terminal" aria-label="Introduction summary">
+              <div class="terminal__bar" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="terminal__body">
+                <div><span class="terminal__prompt">$</span> whoami</div>
+                <div><strong>Lamartine Cabral</strong> / software builder / AI enthusiast</div>
+                <div><span class="terminal__prompt">$</span> focus</div>
+                <div>Building useful things with strong technical foundations and room to evolve.</div>
+                <div><span class="terminal__prompt">$</span> output</div>
+                <div>Minimal products, clear thinking, and software that earns its complexity.</div>
+              </div>
+            </section>
+
+            <section class="focus">
+              <h2>Current orientation</h2>
+              <ul>
+                <li>
+                  <strong>Terminal-first tooling</strong>
+                  <span>Interfaces that stay close to the workflow of developers and power users.</span>
+                </li>
+                <li>
+                  <strong>Local AI experimentation</strong>
+                  <span>Exploring useful agent patterns without depending on heavyweight stacks.</span>
+                </li>
+                <li>
+                  <strong>Lightweight web products</strong>
+                  <span>Fast interfaces that keep the focus on utility, clarity, and ease of use.</span>
+                </li>
+              </ul>
+            </section>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="shell">
+      <section class="section" id="projects">
+        <div class="section__heading reveal">
+          <span>Featured projects</span>
+          <h2>Selected work that reflects how I like to build.</h2>
+          <p>
+            These projects sit close to the themes that define this portfolio: AI, useful tools,
+            and straightforward products that solve practical problems.
+          </p>
+        </div>
+
+        <div class="projects">
+          <article class="project reveal">
+            <div class="project__image">
+              <img src="assets/img/minicode.png" alt="Minicode terminal interface screenshot" />
+            </div>
+            <div class="project__body">
+              <span class="project__label">Featured project</span>
+              <h3>Minicode</h3>
+              <p>
+                A lightweight AI agent CLI powered by Ollama, designed for terminal-first workflows
+                and local experimentation with AI.
+              </p>
+              <div class="project__tags" aria-label="Minicode themes">
+                <span>CLI</span>
+                <span>Ollama</span>
+                <span>Local AI</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <div class="project__body">
+              <span class="project__label">Featured project</span>
+              <h3>Nopedat</h3>
+              <p>
+                A lightweight note app centered on quick sharing, markdown-friendly writing, and
+                easy access from anywhere.
+              </p>
+              <div class="project__tags" aria-label="Nopedat themes">
+                <span>Web app</span>
+                <span>Notes</span>
+                <span>Markdown</span>
+              </div>
+            </div>
+            <div class="project__image">
+              <img src="assets/img/nopedat.png" alt="Nopedat note application screenshot" />
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="section__heading reveal">
+          <span>About</span>
+          <h2>A minimalist portfolio with a technical tone.</h2>
+          <p>
+            The page keeps the visual language restrained and precise: monospace typography,
+            deliberate spacing, and a layout that lets the work carry most of the signal.
+          </p>
+        </div>
+
+        <div class="about">
+          <article class="about__panel reveal">
+            <h3>How I work</h3>
+            <p>
+              I like building software that starts from a real need, stays lightweight for as long
+              as possible, and grows only where the product earns more complexity.
+            </p>
+          </article>
+
+          <article class="about__panel reveal">
+            <h3>What matters</h3>
+            <p>
+              Clear interfaces, practical AI use, and products that feel direct, fast, and useful
+              the first time someone opens them.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer shell">
+      <div class="footer__card reveal">
+        <div>
+          <strong>Lamartine Cabral</strong>
+          <p>Available on LinkedIn for conversations around software, AI, and product building.</p>
+        </div>
+        <div class="footer__links">
+          <a class="button--ghost" href="#projects">Back to projects</a>
+          <a
+            class="button"
+            href="https://www.linkedin.com/in/lamartine-cabral/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Visit LinkedIn
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
