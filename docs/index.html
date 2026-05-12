@@ -369,31 +369,6 @@
         text-transform: uppercase;
       }
 
-      .about {
-        display: grid;
-        gap: 1.25rem;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .about__panel {
-        padding: 1.35rem;
-        border: 1px solid var(--border-strong);
-        border-radius: calc(var(--radius) - 6px);
-        background: rgba(255, 252, 247, 0.78);
-      }
-
-      .about__panel p {
-        color: var(--muted);
-        line-height: 1.9;
-      }
-
-      .about__panel h3 {
-        margin-bottom: 0.8rem;
-        font-size: 1rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-      }
-
       .footer {
         padding: 0 0 2.5rem;
       }
@@ -435,8 +410,7 @@
 
       @media (max-width: 940px) {
         .project,
-        .project:nth-child(2),
-        .about {
+        .project:nth-child(2) {
           grid-template-columns: 1fr;
         }
 
@@ -469,14 +443,12 @@
           font-size: clamp(2.5rem, 16vw, 4rem);
         }
 
-        .project__body,
-        .about__panel {
+        .project__body {
           padding-left: 0;
           padding-right: 0;
         }
 
         .project,
-        .about__panel,
         .footer__card {
           border-radius: 20px;
         }
@@ -508,7 +480,6 @@
           <div class="topbar__brand">Lamartine Cabral</div>
           <nav aria-label="Primary navigation">
             <a href="#projects">Projects</a>
-            <a href="#about">About</a>
           </nav>
         </div>
 
@@ -572,37 +543,6 @@
                 alt="Nopedat note application screenshot"
               />
             </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="about">
-        <div class="section__heading reveal">
-          <span>About</span>
-          <h2>A minimalist portfolio with a technical tone.</h2>
-          <p>
-            The page keeps the visual language restrained and precise: monospace
-            typography, deliberate spacing, and a layout that lets the work
-            carry most of the signal.
-          </p>
-        </div>
-
-        <div class="about">
-          <article class="about__panel reveal">
-            <h3>How I work</h3>
-            <p>
-              I like building software that starts from a real need, stays
-              lightweight for as long as possible, and grows only where the
-              product earns more complexity.
-            </p>
-          </article>
-
-          <article class="about__panel reveal">
-            <h3>What matters</h3>
-            <p>
-              Clear interfaces, practical AI use, and products that feel direct,
-              fast, and useful the first time someone opens them.
-            </p>
           </article>
         </div>
       </section>
