@@ -196,41 +196,13 @@
 
       .hero__content {
         position: relative;
-        display: grid;
-        gap: 2rem;
-        grid-template-columns: minmax(0, 1.3fr) minmax(300px, 0.9fr);
-        padding: clamp(1.5rem, 2vw, 2rem);
+        padding: clamp(2rem, 5vw, 4rem);
       }
 
       .hero__copy {
         display: grid;
-        gap: 1.2rem;
-        align-content: start;
-        padding: clamp(1rem, 2vw, 1.5rem);
-      }
-
-      .hero__eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.75rem;
-        width: fit-content;
-        padding: 0.45rem 0.8rem;
-        border: 1px solid var(--border);
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.62);
-        color: var(--muted);
-        font-size: 0.78rem;
-        text-transform: uppercase;
-        letter-spacing: 0.14em;
-      }
-
-      .hero__eyebrow::before {
-        content: "";
-        width: 0.55rem;
-        height: 0.55rem;
-        border-radius: 50%;
-        background: var(--accent);
-        box-shadow: 0 0 0 6px rgba(13, 107, 95, 0.12);
+        gap: 1rem;
+        max-width: 44rem;
       }
 
       h1,
@@ -248,7 +220,7 @@
       }
 
       .hero__lead {
-        max-width: 60ch;
+        max-width: 40ch;
         font-size: 1rem;
         line-height: 1.9;
         color: var(--muted);
@@ -293,123 +265,6 @@
       .button--ghost:hover,
       .button--ghost:focus-visible {
         transform: translateY(-2px);
-      }
-
-      .hero__facts {
-        display: grid;
-        gap: 0.85rem;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .fact {
-        padding: 0.9rem 0.95rem;
-        border: 1px solid var(--border);
-        border-radius: 20px;
-        background: rgba(255, 255, 255, 0.62);
-      }
-
-      .fact strong {
-        display: block;
-        margin-bottom: 0.35rem;
-        font-size: 0.84rem;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-      }
-
-      .fact span {
-        color: var(--muted);
-        font-size: 0.88rem;
-        line-height: 1.6;
-      }
-
-      .hero__panel {
-        display: grid;
-        gap: 1rem;
-        align-content: start;
-      }
-
-      .terminal,
-      .focus {
-        border: 1px solid var(--border-strong);
-        border-radius: 24px;
-        background: var(--surface);
-        backdrop-filter: blur(12px);
-      }
-
-      .terminal {
-        overflow: hidden;
-      }
-
-      .terminal__bar {
-        display: flex;
-        align-items: center;
-        gap: 0.45rem;
-        padding: 0.95rem 1rem;
-        border-bottom: 1px solid var(--border);
-        background: rgba(29, 33, 29, 0.04);
-      }
-
-      .terminal__bar span {
-        width: 0.72rem;
-        height: 0.72rem;
-        border-radius: 50%;
-        background: rgba(29, 33, 29, 0.18);
-      }
-
-      .terminal__body {
-        display: grid;
-        gap: 0.8rem;
-        padding: 1.15rem;
-        font-size: 0.92rem;
-        line-height: 1.8;
-        color: var(--muted);
-      }
-
-      .terminal__body strong {
-        color: var(--text);
-        font-weight: 600;
-      }
-
-      .terminal__prompt {
-        color: var(--accent);
-      }
-
-      .focus {
-        padding: 1.2rem;
-      }
-
-      .focus h2 {
-        margin-bottom: 1rem;
-        font-size: 0.88rem;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-      }
-
-      .focus ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        display: grid;
-        gap: 0.75rem;
-      }
-
-      .focus li {
-        display: grid;
-        gap: 0.18rem;
-        padding: 0.85rem 0.95rem;
-        border: 1px solid var(--border);
-        border-radius: 18px;
-        background: var(--surface-strong);
-      }
-
-      .focus li strong {
-        font-size: 0.94rem;
-      }
-
-      .focus li span {
-        color: var(--muted);
-        font-size: 0.88rem;
-        line-height: 1.55;
       }
 
       main {
@@ -579,14 +434,9 @@
       }
 
       @media (max-width: 940px) {
-        .hero__content,
         .project,
         .project:nth-child(2),
         .about {
-          grid-template-columns: 1fr;
-        }
-
-        .hero__facts {
           grid-template-columns: 1fr;
         }
 
@@ -619,20 +469,15 @@
           font-size: clamp(2.5rem, 16vw, 4rem);
         }
 
-        .hero__copy,
         .project__body,
-        .about__panel,
-        .focus,
-        .terminal__body {
+        .about__panel {
           padding-left: 0;
           padding-right: 0;
         }
 
         .project,
         .about__panel,
-        .footer__card,
-        .focus,
-        .terminal {
+        .footer__card {
           border-radius: 20px;
         }
       }
@@ -675,105 +520,14 @@
 
         <div class="hero__content">
           <div class="hero__copy reveal">
-            <div class="hero__eyebrow">
-              Programming · AI · Practical software
-            </div>
-            <h1>Building useful software with a technical edge.</h1>
+            <h1>Hi! I'm Lamartine Cabral.</h1>
             <p class="hero__lead">
-              I’m Lamartine Cabral. I care about programming, artificial
-              intelligence, and shipping products that solve real problems
-              without unnecessary complexity.
+              I am passionate about programming and problem solving.
             </p>
 
             <div class="hero__actions">
               <a class="button" href="#projects">See featured work</a>
-              <a
-                class="button--ghost"
-                href="https://www.linkedin.com/in/lamartine-cabral/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Connect on LinkedIn
-              </a>
             </div>
-
-            <div class="hero__facts" aria-label="Core areas of interest">
-              <div class="fact">
-                <strong>Programming</strong>
-                <span
-                  >Practical engineering with clear interfaces and maintainable
-                  systems.</span
-                >
-              </div>
-              <div class="fact">
-                <strong>Artificial intelligence</strong>
-                <span
-                  >Tools that fit real workflows instead of demo-only
-                  experiences.</span
-                >
-              </div>
-              <div class="fact">
-                <strong>Problem solving</strong>
-                <span
-                  >Simple products designed around actual constraints and daily
-                  use.</span
-                >
-              </div>
-            </div>
-          </div>
-
-          <div class="hero__panel reveal">
-            <section class="terminal" aria-label="Introduction summary">
-              <div class="terminal__bar" aria-hidden="true">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <div class="terminal__body">
-                <div><span class="terminal__prompt">$</span> whoami</div>
-                <div>
-                  <strong>Lamartine Cabral</strong> / software builder / AI
-                  enthusiast
-                </div>
-                <div><span class="terminal__prompt">$</span> focus</div>
-                <div>
-                  Building useful things with strong technical foundations and
-                  room to evolve.
-                </div>
-                <div><span class="terminal__prompt">$</span> output</div>
-                <div>
-                  Minimal products, clear thinking, and software that earns its
-                  complexity.
-                </div>
-              </div>
-            </section>
-
-            <section class="focus">
-              <h2>Current orientation</h2>
-              <ul>
-                <li>
-                  <strong>Terminal-first tooling</strong>
-                  <span
-                    >Interfaces that stay close to the workflow of developers
-                    and power users.</span
-                  >
-                </li>
-                <li>
-                  <strong>Local AI experimentation</strong>
-                  <span
-                    >Exploring useful agent patterns without depending on
-                    heavyweight stacks.</span
-                  >
-                </li>
-                <li>
-                  <strong>Lightweight web products</strong>
-                  <span
-                    >Fast interfaces that keep the focus on utility, clarity,
-                    and ease of use.</span
-                  >
-                </li>
-              </ul>
-            </section>
           </div>
         </div>
       </div>
