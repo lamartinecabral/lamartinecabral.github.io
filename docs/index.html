@@ -213,7 +213,6 @@
       }
 
       h1 {
-        max-width: 13ch;
         font-size: clamp(2.8rem, 8vw, 5.8rem);
         line-height: 0.94;
         letter-spacing: -0.08em;
@@ -369,33 +368,6 @@
         text-transform: uppercase;
       }
 
-      .footer {
-        padding: 0 0 2.5rem;
-      }
-
-      .footer__card {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-        padding: 1.2rem 1.25rem;
-        border: 1px solid var(--border-strong);
-        border-radius: 24px;
-        background: rgba(255, 251, 244, 0.82);
-      }
-
-      .footer__card p {
-        color: var(--muted);
-        font-size: 0.9rem;
-        line-height: 1.7;
-      }
-
-      .footer__links {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.8rem;
-      }
-
       @keyframes rise {
         from {
           opacity: 0;
@@ -424,8 +396,7 @@
           width: min(calc(100% - 1rem), var(--max-width));
         }
 
-        .topbar,
-        .footer__card {
+        .topbar {
           align-items: flex-start;
           flex-direction: column;
         }
@@ -448,8 +419,7 @@
           padding-right: 0;
         }
 
-        .project,
-        .footer__card {
+        .project {
           border-radius: 20px;
         }
       }
@@ -485,13 +455,19 @@
 
         <div class="hero__content">
           <div class="hero__copy reveal">
-            <h1>Hi! I'm Lamartine Cabral.</h1>
-            <p class="hero__lead">
-              I am passionate about programming and problem solving.
-            </p>
+            <h1>Passionate about programming and problem solving.</h1>
+            <p class="hero__lead">Feel free to reach out on LinkedIn.</p>
 
             <div class="hero__actions">
-              <a class="button" href="#projects">See featured work</a>
+              <a class="button--ghost" href="#projects">See featured work</a>
+              <a
+                class="button"
+                href="https://www.linkedin.com/in/lamartine-cabral/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Visit LinkedIn
+              </a>
             </div>
           </div>
         </div>
@@ -547,28 +523,5 @@
         </div>
       </section>
     </main>
-
-    <footer class="footer shell">
-      <div class="footer__card reveal">
-        <div>
-          <strong>Lamartine Cabral</strong>
-          <p>
-            I am passionate about programming and problem solving. Feel free to
-            reach out on LinkedIn.
-          </p>
-        </div>
-        <div class="footer__links">
-          <a class="button--ghost" href="#projects">Back to projects</a>
-          <a
-            class="button"
-            href="https://www.linkedin.com/in/lamartine-cabral/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Visit LinkedIn
-          </a>
-        </div>
-      </div>
-    </footer>
   </body>
 </html>
