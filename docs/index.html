@@ -78,6 +78,15 @@
         );
       }
 
+      header,
+      section {
+        padding: 1rem 0 0 0;
+      }
+
+      footer {
+        padding: 1rem 0;
+      }
+
       a {
         color: inherit;
       }
@@ -112,44 +121,19 @@
 
       .hero {
         position: relative;
-        padding: 28px 0 18px;
       }
 
       .hero__frame {
         position: relative;
         overflow: hidden;
         border: 1px solid var(--border-strong);
-        border-radius: calc(var(--radius) + 8px);
+        border-radius: calc(var(--radius) - 4px);
         background: linear-gradient(
           180deg,
           rgba(255, 251, 244, 0.96) 0%,
           rgba(255, 247, 235, 0.92) 100%
         );
         box-shadow: var(--shadow);
-      }
-
-      .hero__frame::before,
-      .hero__frame::after {
-        content: "";
-        position: absolute;
-        border-radius: 999px;
-        filter: blur(12px);
-      }
-
-      .hero__frame::before {
-        width: 220px;
-        height: 220px;
-        top: -90px;
-        right: -30px;
-        background: rgba(13, 107, 95, 0.16);
-      }
-
-      .hero__frame::after {
-        width: 260px;
-        height: 260px;
-        bottom: -140px;
-        left: -80px;
-        background: rgba(175, 93, 48, 0.14);
       }
 
       .topbar {
@@ -202,7 +186,6 @@
       .hero__copy {
         display: grid;
         gap: 1rem;
-        max-width: 44rem;
       }
 
       h1,
@@ -219,7 +202,6 @@
       }
 
       .hero__lead {
-        max-width: 40ch;
         font-size: 1rem;
         line-height: 1.9;
         color: var(--muted);
@@ -266,18 +248,9 @@
         transform: translateY(-2px);
       }
 
-      main {
-        padding: 2rem 0 0 0;
-      }
-
-      .section {
-        padding: 2rem 0;
-      }
-
       .section__heading {
         display: grid;
         gap: 0.75rem;
-        max-width: 62ch;
         margin-bottom: 1.5rem;
       }
 
@@ -299,9 +272,48 @@
         line-height: 1.9;
       }
 
+      .contact-card {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        padding: 1.6rem;
+        border: 1px solid var(--border-strong);
+        border-radius: calc(var(--radius) - 4px);
+        background: rgba(255, 251, 245, 0.76);
+        box-shadow: 0 18px 40px rgba(63, 53, 43, 0.09);
+      }
+
+      .contact-card__body {
+        display: grid;
+        gap: 0.85rem;
+      }
+
+      .contact-card__label {
+        font-size: 0.8rem;
+        color: var(--muted);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .contact-card h3 {
+        font-size: clamp(1.7rem, 4vw, 2.7rem);
+        line-height: 1;
+        letter-spacing: -0.06em;
+      }
+
+      .contact-card p {
+        color: var(--muted);
+        line-height: 1.9;
+      }
+
+      .contact-card__links {
+        justify-content: flex-end;
+      }
+
       .projects {
         display: grid;
-        gap: 1.5rem;
+        gap: 1rem;
       }
 
       .project {
@@ -368,6 +380,61 @@
         text-transform: uppercase;
       }
 
+      .site-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1.1rem 1.25rem;
+        border: 1px solid var(--border-strong);
+        border-radius: 22px;
+        background: rgba(255, 251, 245, 0.76);
+        box-shadow: 0 18px 40px rgba(63, 53, 43, 0.09);
+      }
+
+      .site-footer p {
+        color: var(--muted);
+        font-size: 0.86rem;
+        line-height: 1.6;
+      }
+
+      .social-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .social-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 3rem;
+        height: 3rem;
+        border: 1px solid var(--border-strong);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.62);
+        color: var(--text);
+        transition:
+          transform 180ms ease,
+          border-color 180ms ease,
+          background-color 180ms ease,
+          box-shadow 180ms ease;
+      }
+
+      .social-link:hover,
+      .social-link:focus-visible {
+        transform: translateY(-2px);
+        border-color: var(--accent);
+        background: rgba(13, 107, 95, 0.08);
+        box-shadow: 0 12px 28px rgba(13, 107, 95, 0.12);
+      }
+
+      .social-link svg {
+        width: 1.2rem;
+        height: 1.2rem;
+        fill: currentColor;
+      }
+
       @keyframes rise {
         from {
           opacity: 0;
@@ -381,6 +448,14 @@
       }
 
       @media (max-width: 940px) {
+        .contact-card {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-card__links {
+          justify-content: flex-start;
+        }
+
         .project,
         .project:nth-child(2) {
           grid-template-columns: 1fr;
@@ -410,7 +485,6 @@
         }
 
         h1 {
-          max-width: none;
           font-size: clamp(2.5rem, 16vw, 4rem);
         }
 
@@ -421,6 +495,11 @@
 
         .project {
           border-radius: 20px;
+        }
+
+        .site-footer {
+          align-items: flex-start;
+          flex-direction: column;
         }
       }
 
@@ -449,6 +528,7 @@
         <div class="topbar">
           <div class="topbar__brand">Lamartine Cabral</div>
           <nav aria-label="Primary navigation">
+            <a href="#contact">Contact</a>
             <a href="#projects">Projects</a>
           </nav>
         </div>
@@ -456,18 +536,14 @@
         <div class="hero__content">
           <div class="hero__copy reveal">
             <h1>Passionate about programming and problem solving.</h1>
-            <p class="hero__lead">Feel free to reach out on LinkedIn.</p>
+
+            <p class="hero__lead">
+              This is my digital shelf. Feel free to explore.
+            </p>
 
             <div class="hero__actions">
               <a class="button--ghost" href="#projects">See featured work</a>
-              <a
-                class="button"
-                href="https://www.linkedin.com/in/lamartine-cabral/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Visit LinkedIn
-              </a>
+              <a class="button" href="#contact">Get in touch</a>
             </div>
           </div>
         </div>
@@ -475,6 +551,63 @@
     </header>
 
     <main class="shell">
+      <section class="section" id="contact" aria-labelledby="contact-title">
+        <article class="contact-card reveal">
+          <div class="contact-card__body">
+            <span class="contact-card__label">Contacts</span>
+            <h3 id="contact-title">Let's Talk</h3>
+            <p>
+              Want to ask me something, work together, or just say hi? Feel free
+              to reach out.
+            </p>
+          </div>
+
+          <div
+            class="social-links contact-card__links"
+            aria-label="Contact links"
+          >
+            <a
+              class="social-link"
+              href="mailto:lamartine.cb@gmail.com"
+              aria-label="Send an email"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  xmlns="http://www.w3.org/2000/svg"
+                  d="M19 4H5a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-.67 2L12 10.75 5.67 6zM19 18H5a1 1 0 0 1-1-1V7.25l7.4 5.55a1 1 0 0 0 .6.2 1 1 0 0 0 .6-.2L20 7.25V17a1 1 0 0 1-1 1z"
+                />
+              </svg>
+            </a>
+            <a
+              class="social-link"
+              href="https://www.linkedin.com/in/lamartine-cabral/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Visit LinkedIn profile"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M4.98 3.5A2.48 2.48 0 1 0 5 8.46a2.48 2.48 0 0 0-.02-4.96ZM3 9h4v12H3zm7 0h3.83v1.64h.05c.53-1 1.84-2.05 3.79-2.05 4.05 0 4.8 2.66 4.8 6.12V21h-4v-5.54c0-1.32-.03-3.02-1.84-3.02-1.85 0-2.13 1.44-2.13 2.92V21h-4z"
+                />
+              </svg>
+            </a>
+            <a
+              class="social-link"
+              href="https://github.com/lamartinecabral"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Visit GitHub profile"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.93c.57.1.78-.25.78-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.35-3.88-1.35-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.71.08-.71 1.16.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.72-1.55-2.56-.29-5.25-1.28-5.25-5.71 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.03 0 0 .97-.31 3.19 1.18A11.1 11.1 0 0 1 12 6.32c.98 0 1.97.13 2.9.38 2.21-1.49 3.18-1.18 3.18-1.18.64 1.57.24 2.74.12 3.03.74.81 1.18 1.84 1.18 3.1 0 4.44-2.69 5.41-5.26 5.7.42.36.78 1.07.78 2.16 0 1.56-.01 2.81-.01 3.19 0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"
+                />
+              </svg>
+            </a>
+          </div>
+        </article>
+      </section>
+
       <section class="section" id="projects">
         <div class="projects">
           <article class="project reveal">
@@ -537,5 +670,51 @@
         </div>
       </section>
     </main>
+
+    <footer class="shell">
+      <div class="site-footer reveal">
+        <p>© 2026 Lamartine Cabral</p>
+        <div class="social-links" aria-label="Social links">
+          <a
+            class="social-link"
+            href="mailto:lamartine.cb@gmail.com"
+            aria-label="Send an email"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                xmlns="http://www.w3.org/2000/svg"
+                d="M19 4H5a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-.67 2L12 10.75 5.67 6zM19 18H5a1 1 0 0 1-1-1V7.25l7.4 5.55a1 1 0 0 0 .6.2 1 1 0 0 0 .6-.2L20 7.25V17a1 1 0 0 1-1 1z"
+              />
+            </svg>
+          </a>
+          <a
+            class="social-link"
+            href="https://www.linkedin.com/in/lamartine-cabral/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Visit LinkedIn profile"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M4.98 3.5A2.48 2.48 0 1 0 5 8.46a2.48 2.48 0 0 0-.02-4.96ZM3 9h4v12H3zm7 0h3.83v1.64h.05c.53-1 1.84-2.05 3.79-2.05 4.05 0 4.8 2.66 4.8 6.12V21h-4v-5.54c0-1.32-.03-3.02-1.84-3.02-1.85 0-2.13 1.44-2.13 2.92V21h-4z"
+              />
+            </svg>
+          </a>
+          <a
+            class="social-link"
+            href="https://github.com/lamartinecabral"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Visit GitHub profile"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.93c.57.1.78-.25.78-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.35-3.88-1.35-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.71.08-.71 1.16.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.72-1.55-2.56-.29-5.25-1.28-5.25-5.71 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.03 0 0 .97-.31 3.19 1.18A11.1 11.1 0 0 1 12 6.32c.98 0 1.97.13 2.9.38 2.21-1.49 3.18-1.18 3.18-1.18.64 1.57.24 2.74.12 3.03.74.81 1.18 1.84 1.18 3.1 0 4.44-2.69 5.41-5.26 5.7.42.36.78 1.07.78 2.16 0 1.56-.01 2.81-.01 3.19 0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
