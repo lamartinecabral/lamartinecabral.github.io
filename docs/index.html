@@ -161,9 +161,9 @@
       }
 
       .topbar {
-        display: flex;
+        display: grid;
         align-items: center;
-        justify-content: space-between;
+        grid-template-columns: auto 1fr;
         gap: 1rem;
         padding: 1rem 1.25rem;
         border-bottom: 1px solid var(--border);
@@ -181,6 +181,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 0.65rem;
+        justify-content: end;
       }
 
       .topbar nav a {
@@ -345,6 +346,16 @@
           grid-template-columns: 1fr;
         }
       }
+
+      @media (max-width: 480px) {
+        .topbar__brand {
+          max-width: min-content;
+        }
+
+        #contact .social-links {
+          flex-direction: column;
+        }
+      }
     </style>
   </head>
   <body>
@@ -453,7 +464,7 @@
               aria-label="Visit Minicode GitHub repository"
             >
               <img
-                src="assets/img/minicode.png"
+                src="assets/minicode.png"
                 alt="Minicode terminal interface screenshot"
               />
             </a>
@@ -482,7 +493,7 @@
               aria-label="Visit Nopedat website"
             >
               <img
-                src="assets/img/nopedat.png"
+                src="assets/nopedat.png"
                 alt="Nopedat note application screenshot"
               />
             </a>

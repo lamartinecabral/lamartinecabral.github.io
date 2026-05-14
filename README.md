@@ -12,13 +12,13 @@ The visual direction is intentionally minimalist, with a clean layout and monosp
 
 Minicode is a lightweight AI agent CLI powered by Ollama, built for terminal-first workflows and local experimentation with AI.
 
-![Minicode screenshot](docs/assets/img/minicode.png)
+![Minicode screenshot](docs/assets/minicode.png)
 
 ### Nopedat
 
 Nopedat is a lightweight web note app focused on simple note sharing, markdown-friendly writing, and quick access from anywhere.
 
-![Nopedat screenshot](docs/assets/img/nopedat.png)
+![Nopedat screenshot](docs/assets/nopedat.png)
 
 ## Links
 
