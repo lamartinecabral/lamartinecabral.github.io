@@ -18,6 +18,41 @@
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <script type="module" defer>
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+      import {
+        getAnalytics,
+        logEvent,
+      } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-analytics.js";
+
+      const firebaseConfig = {
+        ...JSON.parse(
+          atob(
+            "eyJhcGlLZXkiOiJBSXphU3lBZm85V1MxUjBuZWJQYkxyWFNvWnJOaU4ycW5PVzFVOU0ifQ==",
+          ),
+        ),
+        authDomain: "lamart-analytics.firebaseapp.com",
+        projectId: "lamart-analytics",
+        storageBucket: "lamart-analytics.firebasestorage.app",
+        messagingSenderId: "100586889774",
+        appId: "1:100586889774:web:ca36219ee0bf07c480f5bf",
+        measurementId: "G-FZTHJJTRZV",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+
+      logEvent(analytics, "page_view");
+
+      document.querySelectorAll("a.social-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          logEvent(analytics, "social_link_click", {
+            href: link.href,
+          });
+        });
+      });
+    </script>
     <style>
       :root {
         --bg: #f4efe5;
