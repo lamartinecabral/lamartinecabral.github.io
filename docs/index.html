@@ -52,6 +52,14 @@
           });
         });
       });
+
+      document.querySelectorAll(".project__image a").forEach((link) => {
+        link.addEventListener("click", () => {
+          logEvent(analytics, "project_image_click", {
+            href: link.href,
+          });
+        });
+      });
     </script>
     <style>
       :root {
