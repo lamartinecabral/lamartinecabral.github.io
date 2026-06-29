@@ -64,16 +64,12 @@
     <style>
       :root {
         --bg: #f2f4f7;
-        --bg-strong: #e6eaef;
-        --surface: rgba(255, 255, 255, 0.88);
-        --surface-strong: rgba(255, 255, 255, 0.96);
         --text: #131a23;
         --muted: #5f6b7a;
         --border: rgba(19, 27, 38, 0.12);
         --border-strong: rgba(19, 27, 38, 0.18);
         --accent: #2975b6;
         --accent-soft: rgba(41, 117, 182, 0.14);
-        --shadow: 0 24px 60px rgba(27, 41, 60, 0.14);
         --max-width: 1160px;
         --radius: 28px;
       }
@@ -103,6 +99,7 @@
             transparent 28%
           ),
           linear-gradient(180deg, #f7f1e6 0%, var(--bg) 100%);
+        background-attachment: fixed;
       }
 
       a {
@@ -142,7 +139,7 @@
         border: 1px solid var(--border-strong);
         border-radius: var(--radius);
         background: rgba(255, 251, 245, 0.76);
-        box-shadow: 0 18px 40px rgba(63, 53, 43, 0.09);
+        box-shadow: 0 5px 10px rgba(63, 53, 43, 0.09);
       }
 
       .card h3 {
@@ -184,7 +181,8 @@
       .button {
         color: #f7f4ed;
         background: linear-gradient(135deg, #2975b6 0%, #1f5c88 100%);
-        box-shadow: 0 12px 28px rgba(41, 117, 182, 0.16);
+        outline-color: #0d3654;
+        box-shadow: 0 5px 10px rgba(41, 117, 182, 0.16);
       }
 
       .button--ghost {
@@ -303,7 +301,7 @@
         transform: translateY(-2px);
         border-color: var(--accent);
         background: rgba(13, 107, 95, 0.08);
-        box-shadow: 0 12px 28px rgba(13, 107, 95, 0.12);
+        box-shadow: 0 5px 10px rgba(13, 107, 95, 0.12);
       }
 
       .social-link svg {
@@ -376,7 +374,7 @@
         background: white;
         opacity: 0;
         transition:
-          background 0.4s ease,
+          background-color 0.4s ease,
           opacity 0.4s ease;
       }
 
@@ -389,7 +387,7 @@
         border: 1px solid var(--border-strong);
         border-radius: var(--radius);
         background: rgba(255, 251, 245, 0.76);
-        box-shadow: 0 18px 40px rgba(63, 53, 43, 0.09);
+        box-shadow: 0 5px 10px rgba(63, 53, 43, 0.09);
       }
 
       footer .card p {
@@ -528,6 +526,7 @@
               target="_blank"
               rel="noreferrer"
               aria-label="Visit LAWT GitHub repository"
+              tabindex="-1"
             >
               <img
                 src="assets/lawt.png"
@@ -566,6 +565,7 @@
               target="_blank"
               rel="noreferrer"
               aria-label="Visit Nopedat website"
+              tabindex="-1"
             >
               <img
                 src="assets/nopedat.png"
@@ -604,6 +604,7 @@
               target="_blank"
               rel="noreferrer"
               aria-label="Visit Sekret npm package page"
+              tabindex="-1"
             >
               <img
                 src="assets/sekret.png"
@@ -642,6 +643,7 @@
               target="_blank"
               rel="noreferrer"
               aria-label="Visit Freedom npm package page"
+              tabindex="-1"
             >
               <img
                 src="assets/freedom.png"
