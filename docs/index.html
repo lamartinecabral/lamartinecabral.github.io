@@ -19,6 +19,7 @@
       rel="stylesheet"
     />
     <script type="module" defer src="./analytics.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@lamartinecabral/freedom@1.0.0"></script>
     <style>
       :root {
         --bg: #f2f4f7;
@@ -446,161 +447,93 @@
       </section>
 
       <section id="projects">
-        <article class="card">
-          <div>
-            <span class="card__label">Featured project</span>
-            <h3>LAWT - Local AI With Tools</h3>
-            <p>
-              An AI assistant CLI that integrates with local LLMs to perform
-              tasks via tool calling.
-            </p>
-            <div class="project__tags" aria-label="LAWT themes">
-              <span>CLI</span>
-              <span>Ollama</span>
-              <span>Local AI</span>
-            </div>
-            <div>
-              <a
-                href="https://github.com/lamartinecabral/lawt-public"
-                target="_blank"
-                rel="noreferrer"
-                class="button"
-                >View on GitHub</a
-              >
-            </div>
-          </div>
-          <div class="project__image">
-            <a
-              href="https://github.com/lamartinecabral/lawt-public"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Visit LAWT GitHub repository"
-              tabindex="-1"
-            >
-              <img
-                src="assets/lawt.png"
-                alt="LAWT terminal interface screenshot"
-              />
-            </a>
-          </div>
-        </article>
+        <script>
+          const projects = [
+            {
+              name: "LAWT - Local AI With Tools",
+              description:
+                "An AI assistant CLI that integrates with local LLMs to perform tasks via tool calling.",
+              tags: ["CLI", "Ollama", "Local AI"],
+              link: "https://github.com/lamartinecabral/lawt-public",
+              image: "assets/lawt.png",
+              alt: "LAWT terminal interface screenshot",
+              cta: "View on GitHub",
+            },
+            {
+              name: "Nopedat",
+              description:
+                "A minimalist note-taking web app focused on seamless sharing and programmatic access.",
+              tags: ["Web app", "Notes", "Markdown"],
+              link: "https://nopedat.web.app",
+              image: "assets/nopedat.png",
+              alt: "Nopedat note application screenshot",
+              cta: "Visit Website",
+            },
+            {
+              name: "Sekret",
+              description:
+                "A lightweight encryption utility focused on simple text encryption and decryption with a minimal developer API.",
+              tags: ["Encryption", "JavaScript", "NPM"],
+              link: "https://npmjs.com/package/@lamartinecabral/sekret",
+              image: "assets/sekret.png",
+              alt: "Sekret encryption utility code example",
+              cta: "View on NPM",
+            },
+            {
+              name: "Freedom",
+              description:
+                "Micro-utilities for fast, vanilla JavaScript DOM creation and styling.",
+              tags: ["JavaScript", "UI", "NPM"],
+              link: "https://npmjs.com/package/@lamartinecabral/freedom",
+              image: "assets/freedom.png",
+              alt: "Freedom JavaScript UI utility code example",
+              cta: "View on NPM",
+            },
+          ];
 
-        <article class="card">
-          <div>
-            <span class="card__label">Featured project</span>
-            <h3>Nopedat</h3>
-            <p>
-              A minimalist note-taking web app focused on seamless sharing and
-              programmatic access.
-            </p>
-            <div class="project__tags" aria-label="Nopedat themes">
-              <span>Web app</span>
-              <span>Notes</span>
-              <span>Markdown</span>
-            </div>
-            <div>
-              <a
-                href="https://nopedat.web.app"
-                target="_blank"
-                rel="noreferrer"
-                class="button"
-                >Visit Website</a
-              >
-            </div>
-          </div>
-          <div class="project__image">
-            <a
-              href="https://nopedat.web.app"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Visit Nopedat website"
-              tabindex="-1"
-            >
-              <img
-                src="assets/nopedat.png"
-                alt="Nopedat note application screenshot"
-              />
-            </a>
-          </div>
-        </article>
+          const { elem } = freedom;
 
-        <article class="card">
-          <div>
-            <span class="card__label">Featured project</span>
-            <h3>Sekret</h3>
-            <p>
-              A lightweight encryption utility focused on simple text encryption
-              and decryption with a minimal developer API.
-            </p>
-            <div class="project__tags" aria-label="Sekret themes">
-              <span>Encryption</span>
-              <span>JavaScript</span>
-              <span>NPM</span>
-            </div>
-            <div>
-              <a
-                href="https://npmjs.com/package/@lamartinecabral/sekret"
-                target="_blank"
-                rel="noreferrer"
-                class="button"
-                >View on NPM</a
-              >
-            </div>
-          </div>
-          <div class="project__image">
-            <a
-              href="https://npmjs.com/package/@lamartinecabral/sekret"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Visit Sekret npm package page"
-              tabindex="-1"
-            >
-              <img
-                src="assets/sekret.png"
-                alt="Sekret encryption utility code example"
-              />
-            </a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div>
-            <span class="card__label">Featured project</span>
-            <h3>Freedom</h3>
-            <p>
-              Micro-utilities for fast, vanilla JavaScript DOM creation and
-              styling.
-            </p>
-            <div class="project__tags" aria-label="Freedom themes">
-              <span>JavaScript</span>
-              <span>UI</span>
-              <span>NPM</span>
-            </div>
-            <div>
-              <a
-                href="https://npmjs.com/package/@lamartinecabral/freedom"
-                target="_blank"
-                rel="noreferrer"
-                class="button"
-                >View on NPM</a
-              >
-            </div>
-          </div>
-          <div class="project__image">
-            <a
-              href="https://npmjs.com/package/@lamartinecabral/freedom"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Visit Freedom npm package page"
-              tabindex="-1"
-            >
-              <img
-                src="assets/freedom.png"
-                alt="Freedom JavaScript UI utility code example"
-              />
-            </a>
-          </div>
-        </article>
+          for (const project of projects) {
+            document.getElementById("projects").appendChild(
+              elem("article", { className: "card" }, [
+                elem("div", {}, [
+                  elem(
+                    "span",
+                    { className: "card__label" },
+                    "Featured project",
+                  ),
+                  elem("h3", {}, project.name),
+                  elem("p", {}, project.description),
+                  elem("div", { className: "project__tags" }, [
+                    ...project.tags.map((tag) => elem("span", {}, tag)),
+                  ]),
+                  elem("div", {}, [
+                    elem(
+                      "a",
+                      {
+                        href: project.link,
+                        target: "_blank",
+                        className: "button",
+                      },
+                      project.cta,
+                    ),
+                  ]),
+                ]),
+                elem("div", { className: "project__image" }, [
+                  elem(
+                    "a",
+                    {
+                      href: project.link,
+                      target: "_blank",
+                      tabIndex: -1,
+                    },
+                    [elem("img", { src: project.image, alt: project.alt })],
+                  ),
+                ]),
+              ]),
+            );
+          }
+        </script>
       </section>
     </main>
 
