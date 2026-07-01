@@ -18,7 +18,7 @@ const contactSection = {
     "Want to ask me something, work together, or just say hi? Feel free to reach out.",
 };
 const footerSection = {
-  message: "© 2026 Lamart Tecnologia - CNPJ: 47.534.210/0001-23",
+  message: "© 2026 Lamartine Cabral",
 };
 
 type Project = {
