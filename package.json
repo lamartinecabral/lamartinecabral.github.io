@@ -8,7 +8,7 @@
     "start": "npm run build"
   },
   "dependencies": {
-    "@lamartinecabral/freedom": "^1.0.0",
+    "@lamartinecabral/freedom": "^1.0.1",
     "happy-dom": "^20.10.6"
   }
 }

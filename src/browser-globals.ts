@@ -1,4 +1,5 @@
 import { Window } from "happy-dom";
 
-globalThis.window = new Window() as any;
+// @ts-ignore this sets a browser-like environment in Node.js
+globalThis.window = new Window();
 globalThis.document = window.document;
