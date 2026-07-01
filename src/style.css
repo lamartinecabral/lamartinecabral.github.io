@@ -80,6 +80,11 @@ footer {
   line-height: 1.9;
 }
 
+.card__body {
+  display: grid;
+  gap: 1rem;
+}
+
 .card__label {
   font-size: 0.8rem;
   color: var(--muted);
