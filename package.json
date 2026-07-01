@@ -1,0 +1,14 @@
+{
+  "type": "module",
+  "engines": {
+    "node": "24"
+  },
+  "scripts": {
+    "build": "node scripts/build.ts",
+    "start": "npm run build"
+  },
+  "dependencies": {
+    "@lamartinecabral/freedom": "^1.0.0",
+    "happy-dom": "^20.10.6"
+  }
+}
