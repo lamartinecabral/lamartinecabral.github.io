@@ -36,7 +36,7 @@ const projects: Project[] = [
     description:
       "An AI assistant CLI that integrates with local LLMs to perform tasks via tool calling.",
     tags: ["CLI", "Ollama", "Local AI"],
-    link: "https://github.com/lamartinecabral/lawt-public",
+    link: "https://github.com/lamartinecabral/lawt",
     image: "assets/lawt.png",
     alt: "LAWT terminal interface screenshot",
     cta: "View on GitHub",
