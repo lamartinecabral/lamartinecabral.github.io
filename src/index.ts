@@ -1,4 +1,3 @@
-import "./browser-globals.ts";
 import "@lamartinecabral/freedom";
 import fs from "node:fs";
 

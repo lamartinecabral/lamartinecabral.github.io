@@ -1,3 +1,4 @@
+import "./browser-globals.ts";
 import "../src/index.ts";
 import fs from "node:fs";
 
