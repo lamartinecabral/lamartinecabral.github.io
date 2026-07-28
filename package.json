@@ -10,5 +10,8 @@
   "dependencies": {
     "@lamartinecabral/freedom": "^1.0.1",
     "happy-dom": "^20.10.6"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.2"
   }
 }
