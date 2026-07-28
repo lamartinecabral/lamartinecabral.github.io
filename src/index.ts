@@ -32,6 +32,16 @@ type Project = {
 
 const projects: Project[] = [
   {
+    name: "Nomes da Terra",
+    description:
+      "Nomes da Terra is an interactive platform for exploring Brazilian family names and their geographic distribution.",
+    tags: ["Open Data", "Web app", "Typescript"],
+    link: "https://lamartinecabral.github.io/nomes-da-terra/",
+    image: "assets/nomesdaterra.png",
+    alt: "Nomes da Terra app screenshot",
+    cta: "Visit Website",
+  },
+  {
     name: "LAWT - Local AI With Tools",
     description:
       "An AI assistant CLI that integrates with local LLMs to perform tasks via tool calling.",
