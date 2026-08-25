@@ -32,6 +32,16 @@ type Project = {
 
 const projects: Project[] = [
   {
+    name: "GemmaTalk",
+    description:
+      "A browser-based AI chat app that downloads Google's Gemma 4 E2B weights and runs entirely on-device.",
+    tags: ["AI", "Web app", "Gemma"],
+    link: "https://lamartinecabral.github.io/gemmatalk",
+    image: "assets/gemmatalk.png",
+    alt: "GemmaTalk chat interface screenshot",
+    cta: "Visit Website",
+  },
+  {
     name: "Nomes da Terra",
     description:
       "Nomes da Terra is an interactive platform for exploring Brazilian family names and their geographic distribution.",
